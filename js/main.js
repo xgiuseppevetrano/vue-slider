@@ -10,6 +10,7 @@
 const app = new Vue ({
     el: '#app',
     data: {
+        intervalID: null,
         currentIndex: 0,
         images: [
             {
@@ -51,14 +52,25 @@ const app = new Vue ({
         // 4. Creo una funzione per far vedere grande l'immagine che vado a cliccare
         selectedImage(index) {
             this.currentIndex = index;
+        },
+        // 5. Creo una funzione per far partire un intervallo di 3 secondi che fa scorrere le immagini
+        startInterval() {
+            this.intervalID = setInterval(() => {
+                this.downImage();
+            }, 3000);    
+        },
+        // 6. Creo una funzione per fermare il setInterval
+        stopInterval() {
+            clearInterval(this.intervalID);
         }
     },
-    // 5. Creo un intervallo di tempo in cui far vedere le immagini
+    // 7. Nel momento in cui viene montato la mia pagina faccio partire il setInterval
     mounted() {
-        setInterval(() => {
-            this.downImage();
-        }, 3000);
+        this.startInterval();
+    },
+    // 8. Un momento prima della chiusura del mio browser fermo il mio intervallo
+    beforeDestroy() {
+        this.stopInterval();
     }
-    
 });
 

@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-   <div id="app" class="container">
-        <div class="items">
+    <div id="app" class="container">
+        <div class="items" @mouseover="stopInterval()" @mouseleave="startInterval()">
             
             <div class="item active">
                 <img :src="images[currentIndex].src">
@@ -20,7 +20,7 @@
             </div> 
            
         </div>
-        <div class="thumbs">
+        <div class="thumbs" @mouseover="stopInterval()" @mouseleave="startInterval()">
             <div class="prev" @click="upImage()"></div>
 
             <div class="thumb" v-for="(image, index) in images" :class="{'active' : currentIndex === index}" @click="selectedImage(index)">
@@ -29,8 +29,8 @@
 
             <div class="next" @click="downImage()"></div>
         </div>
-   </div>
-   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-   <script src="js/main.js"></script>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
