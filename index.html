@@ -23,7 +23,7 @@
         <div class="thumbs">
             <div class="prev" @click="upImage()"></div>
 
-            <div class="thumb" v-for="(image, index) in images" :class="{'active' : currentIndex === index}">
+            <div class="thumb" v-for="(image, index) in images" :class="{'active' : currentIndex === index}" @click="selectedImage(index)">
                 <img :src="image.src">
             </div> 
 

@@ -47,6 +47,9 @@ const app = new Vue ({
         // 3. Creo una funzione per far scendere le immagini cliccando la freccia verso giu
         downImage() {
             this.currentIndex === this.images.length - 1 ? this.currentIndex = 0  : this.currentIndex++;
+        },
+        selectedImage(index) {
+            this.currentIndex = index;
         }
     }
 });
