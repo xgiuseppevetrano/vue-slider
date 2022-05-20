@@ -48,9 +48,17 @@ const app = new Vue ({
         downImage() {
             this.currentIndex === this.images.length - 1 ? this.currentIndex = 0  : this.currentIndex++;
         },
+        // 4. Creo una funzione per far vedere grande l'immagine che vado a cliccare
         selectedImage(index) {
             this.currentIndex = index;
         }
+    },
+    // 5. Creo un intervallo di tempo in cui far vedere le immagini
+    mounted() {
+        setInterval(() => {
+            this.downImage();
+        }, 3000);
     }
+    
 });
 
